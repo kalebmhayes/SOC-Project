@@ -3,19 +3,26 @@
         <form [formGroup]="addUserForm">
             <h1>{{title}}</h1>
             <label for="name">Full Name</label>
-                <input ng-required="true" id="name" type="text" formControlName="name" >
+                <input ng-required="true" id="name" type="text" placeholder="Full Name" formControlName="name" >
+
             <label for="address">Address</label>
-                <input ng-required="true" id="address" type="text" formControlName="address">
+                <input ng-required="true" id="address" type="text" placeholder="Address" formControlName="address">
+
             <label for="phoneNumber">Phone Number</label>
-                <input ng-required="true" id="phoneNumber" type="number" formControlName="phoneNumber">
+                <input ng-required="true" id="phoneNumber" type="number" placeholder="ex: 5555555555" formControlName="phoneNumber">
+
             <label for="email">Email</label>
-                <input ng-required="true" id="email" type="email" placeholder="Email Address" formControlName="email">
+                <input ng-required="true" id="email" type="email" placeholder="someone@email.com" formControlName="email">
+
             <label for="age">Age</label>
                 <input ng-required="true" id="age" type="number" placeholder="Age" formControlName="age">
+
             <label for="experience">Experience</label>
-                <textarea ng-required="true" id="experience" type="text"  formControlName="experience"></textarea>
-            <label for="history">Employment His</label>
-                <textarea ng-required="true" id="history" type="text"  formControlName="employmentHistory"></textarea>
+                <textarea ng-required="true" id="experience" type="text"  placeholder="what is youre Experience?" formControlName="experience"></textarea>
+
+            <label for="history">Employment History</label>
+                <textarea ng-required="true" id="history" type="text" placeholder="what were your previous jobs?" formControlName="employmentHistory"></textarea>
+
             <button (click)="submitForm()">Submit Form</button>
         </form>
     </div>

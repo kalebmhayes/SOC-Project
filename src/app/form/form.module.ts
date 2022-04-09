@@ -6,8 +6,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppForm } from './form.component'
 
-
-
 @NgModule({
   imports: [
     CommonModule, 

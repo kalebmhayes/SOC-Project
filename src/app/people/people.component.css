@@ -1,11 +1,17 @@
 * {
   box-sizing: border-box;
 }
+.people-sidebar {
+  background: #101ef0;
+  height: 100%;
+}
+
 table,
 td,
 th {
   border: solid 1px black;
   border-collapse: collapse;
+  color: white;
 }
 
 table {
@@ -24,6 +30,7 @@ th {
 }
 .people {
   position: relative;
+  margin-left: 20px;
 }
 
 .showBtn {
@@ -31,6 +38,7 @@ th {
   width: 100px;
   border: none;
   background-color: inherit;
+  color: inherit;
 }
 .personal-info-card {
   background-color: rgb(73, 73, 73);
@@ -42,6 +50,7 @@ th {
   margin-left: auto;
   margin-right: auto;
   border-radius: 10px;
+  text-align: center;
 }
 .contact {
   background: rgb(79, 79, 197);
@@ -75,8 +84,8 @@ th {
   margin-bottom: 10px;
 }
 .hideBtn {
-  margin-left: auto;
-  margin-right: auto;
+  width: 80%;
+
   font-size: 1.6em;
   background-color: rgb(91, 91, 233);
   color: black;

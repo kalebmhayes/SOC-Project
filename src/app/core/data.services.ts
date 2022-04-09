@@ -12,23 +12,6 @@ import { Person } from '../../app/shared/interfaces';
 
 @Injectable()
 export class DataService {
-
-    // baseUrl: string = 'assets/';
-    
-    // constructor(private http: HttpClient) { }
-
-    // getPeople(): Observable<Person[]> {
-    //     return this.http.get<Person[]>(this.baseUrl + 'people.json')
-    //         .pipe(
-    //             catchError(this.handleError)
-    //         );
-    // }
-    
- 
-
-
-
-
     private handleError(error: any) {
       console.error('server error:', error);
       if (error.error instanceof Error) {

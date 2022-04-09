@@ -6,7 +6,7 @@ html {
 }
 
 .form-div {
-  background-color: rgb(79, 79, 197);
+  background: #7500fa;
   padding: 2.5em;
 }
 
@@ -14,7 +14,6 @@ html {
   background: white;
   height: fit-content;
   margin: auto;
-  width: 800px;
   border-radius: 5px;
 }
 

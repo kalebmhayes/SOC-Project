@@ -1,0 +1,10 @@
+div {
+  font-size: 2em;
+  padding-top: 40px;
+}
+input {
+  border-radius: 10px;
+  border: none;
+  width: 50%;
+  height: 40px;
+}

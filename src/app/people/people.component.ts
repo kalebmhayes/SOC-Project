@@ -3,8 +3,6 @@ import { Person } from "../shared/interfaces";
 import { DataService } from "../core/data.services";
 import {AngularFireDatabase} from '@angular/fire/compat/database'
 
-
-
 @Component({
     selector: 'people',
     templateUrl: './people.component.html',
@@ -16,9 +14,6 @@ export class People {
     filteredCustomers: any[]
     db : AngularFireDatabase
     
-
-
-  
     constructor( db: AngularFireDatabase){
        db.list('/People').valueChanges().subscribe(items =>{
            this.items = items
@@ -31,7 +26,6 @@ export class People {
            })
        }
     
-
     showInfoBox(item){
         item.hidden = false
         console.log(item.hidden)
@@ -41,19 +35,14 @@ export class People {
         item.hidden = true
     }
 
-
-    log(x){
-        console.log(x)
-    }
-
-    
-    
     searchThis(data) {
-        this.filteredCustomers = this.items
-      console.log(data)
       if (data) {
-        this.filteredCustomers = this.items.filter( (ele) => {
-
+        this.filteredCustomers = this.items.map((item) =>{
+            return({
+                ...item,
+                hidden: true
+            })
+        }).filter( (ele) => {
         return ele.name.toLowerCase().indexOf(data.toLowerCase()) > -1 ||
                ele.address.toLowerCase().indexOf(data.toLowerCase()) > -1 || 
                ele.email.toLowerCase().indexOf(data.toLowerCase()) > -1 ||
@@ -61,10 +50,13 @@ export class People {
                ele.employmentHistory.toLowerCase().indexOf(data.toLowerCase()) > -1
         })
       } else {
-        this.filteredCustomers = this.items
+        this.filteredCustomers = this.items.map((item) =>{
+            return({
+                ...item,
+                hidden: true
+            })
+        })
       }
     }
-
-
   }
 

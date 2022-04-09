@@ -2,9 +2,6 @@ import { Component , OnInit} from "@angular/core";
 import { FormControl, Validators } from "@angular/forms";
 import { AngularFireDatabase } from "@angular/fire/compat/database";
 import { FormGroup } from "@angular/forms";
-import {Person} from '../shared/interfaces'
-
-
 
 @Component({
     selector: 'app-form',
@@ -12,12 +9,9 @@ import {Person} from '../shared/interfaces'
     styleUrls: ['./form.component.css']
 })
 
-
-
 export class AppForm implements OnInit{
 
     constructor(private db: AngularFireDatabase){}
-
 
     addUserForm = new FormGroup({
         name : new FormControl('' , [Validators.required]),
@@ -32,9 +26,7 @@ export class AppForm implements OnInit{
     title: string;
 
     submitForm(){
-        
         if(this.addUserForm.valid){
-
             this.db.database.ref('/People').push(this.addUserForm.value)
             console.log(this.addUserForm)
             this.addUserForm = new FormGroup({
@@ -46,17 +38,11 @@ export class AppForm implements OnInit{
                 experience : new FormControl('' , [Validators.required]),
                 employmentHistory: new FormControl('' , [Validators.required])
             })
-            
-            console.log('data submited')
-            
-            
-        } else{
-            alert('please fill in all fields')
-            console.log('form invalid')
+            } else{
+                alert('please fill in all fields')
+                }
         }
-    }
-
-  
+        
     ngOnInit() {
         this.title = 'Form'
     }
