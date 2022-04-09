@@ -1,7 +1,10 @@
 import { Component, OnInit, Input  } from "@angular/core";
+import { Injectable } from "@angular/core";
 import { Person } from "../shared/interfaces";
 import { DataService } from "../core/data.services";
 import {AngularFireDatabase} from '@angular/fire/compat/database'
+import { PeopleService } from "../Services/people.services";
+
 
 @Component({
     selector: 'people',
@@ -9,23 +12,22 @@ import {AngularFireDatabase} from '@angular/fire/compat/database'
     styleUrls:['./people.component.css']
 })
 
+
+
 export class People {
-    items: any[]
+    items: Person[]
     filteredCustomers: any[]
     db : AngularFireDatabase
     
-    constructor( db: AngularFireDatabase){
-       db.list('/People').valueChanges().subscribe(items =>{
-           this.items = items
-           this.filteredCustomers = this.items.map((item) =>{
-               return({
-                   ...item,
-                   hidden: true
-               })
-           })
-           })
-       }
+    // constructor( db: AngularFireDatabase){
+    //    db.list('/People').valueChanges().subscribe(items =>{
+    //        this.items = items
+         
+    //        })
+    //    }
     
+    constructor(private peopleService: PeopleService){ }
+
     showInfoBox(item){
         item.hidden = false
         console.log(item.hidden)
@@ -57,6 +59,20 @@ export class People {
             })
         })
       }
+    }
+
+    
+
+    ngOnInit(){
+        this.peopleService.getPeople().subscribe(person =>{
+            this.items = person
+            this.filteredCustomers = this.items.map((item) =>{
+                return({
+                    ...item,
+                    hidden: true
+                })
+            })
+        })
     }
   }
 

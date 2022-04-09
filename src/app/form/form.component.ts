@@ -2,6 +2,7 @@ import { Component , OnInit} from "@angular/core";
 import { FormControl, Validators } from "@angular/forms";
 import { AngularFireDatabase } from "@angular/fire/compat/database";
 import { FormGroup } from "@angular/forms";
+import { PeopleService } from "../Services/people.services";
 
 @Component({
     selector: 'app-form',
@@ -11,7 +12,7 @@ import { FormGroup } from "@angular/forms";
 
 export class AppForm implements OnInit{
 
-    constructor(private db: AngularFireDatabase){}
+    constructor(private personService: PeopleService){}
 
     addUserForm = new FormGroup({
         name : new FormControl('' , [Validators.required]),
@@ -27,7 +28,10 @@ export class AppForm implements OnInit{
 
     submitForm(){
         if(this.addUserForm.valid){
-            this.db.database.ref('/People').push(this.addUserForm.value)
+            console.log(this.addUserForm.value)
+            // this.db.database.ref('/People').push(this.addUserForm.value)
+            this.personService.addItem(this.addUserForm.value)
+
             console.log(this.addUserForm)
             this.addUserForm = new FormGroup({
                 name : new FormControl('' , [Validators.required]),
@@ -42,7 +46,7 @@ export class AppForm implements OnInit{
                 alert('please fill in all fields')
                 }
         }
-        
+
     ngOnInit() {
         this.title = 'Form'
     }
