@@ -1,0 +1,84 @@
+* {
+  box-sizing: border-box;
+}
+table,
+td,
+th {
+  border: solid 1px black;
+  border-collapse: collapse;
+}
+
+table {
+  width: 100%;
+  margin-top: 30px;
+}
+
+td {
+  padding: 1em;
+}
+th {
+  font-size: 1.4em;
+  text-align: left;
+  padding-left: 1em;
+  width: auto;
+}
+.people {
+  position: relative;
+}
+
+.showBtn {
+  font-size: 1.2em;
+  width: 100px;
+  border: none;
+  background-color: inherit;
+}
+.personal-info-card {
+  background-color: rgb(73, 73, 73);
+  position: absolute;
+  width: 50%;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+}
+.contact {
+  background: rgb(79, 79, 197);
+  border-radius: 10px 10px 0 0;
+  color: white;
+  font-family: sans-serif;
+  padding: 1em;
+}
+.contact h1 {
+  font-size: 3em;
+  font-weight: bold;
+}
+.contact p {
+  font-size: 1.2em;
+  color: lightgray;
+}
+.age {
+  color: rgb(224, 224, 224);
+  font-weight: 400;
+  margin-left: 1em;
+  font-size: 0.6em;
+}
+.details {
+  color: rgb(219, 218, 218);
+  padding: 1em;
+  margin-top: 2em;
+  font-weight: lighter;
+}
+
+.details h1 {
+  margin-bottom: 10px;
+}
+.hideBtn {
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.6em;
+  background-color: rgb(91, 91, 233);
+  color: black;
+  border: none;
+}

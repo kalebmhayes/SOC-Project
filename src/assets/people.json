@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "name": "Kaleb Hayes",
+        "address": "561 Brigham Trail",
+        "phoneNumber": 8434509184,
+        "email": "khayespaperless@gmail.com",
+        "age": 24,
+        "experience": "none",
+        "employmentHistory": "Teacher"
+    },
+    {
+        "id": 2,
+        "name": "Kaleb Hayes",
+        "address": "561 Brigham Trail",
+        "phoneNumber": 8434509184,
+        "email": "khayespaperless@gmail.com",
+        "age": 24,
+        "experience": "none",
+        "employmentHistory": "Teacher"
+    },
+    {
+        "id": 3,
+        "name": "Kaleb Hayes",
+        "address": "561 Brigham Trail",
+        "phoneNumber": 8434509184,
+        "email": "khayespaperless@gmail.com",
+        "age": 24,
+        "experience": "none",
+        "employmentHistory": "Teacher"
+    }
+]

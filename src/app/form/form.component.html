@@ -1,0 +1,22 @@
+<div class="form-div">
+    <div class="background-card">
+        <form [formGroup]="addUserForm">
+            <h1>{{title}}</h1>
+            <label for="name">Full Name</label>
+                <input ng-required="true" id="name" type="text" formControlName="name" >
+            <label for="address">Address</label>
+                <input ng-required="true" id="address" type="text" formControlName="address">
+            <label for="phoneNumber">Phone Number</label>
+                <input ng-required="true" id="phoneNumber" type="number" formControlName="phoneNumber">
+            <label for="email">Email</label>
+                <input ng-required="true" id="email" type="email" placeholder="Email Address" formControlName="email">
+            <label for="age">Age</label>
+                <input ng-required="true" id="age" type="number" placeholder="Age" formControlName="age">
+            <label for="experience">Experience</label>
+                <textarea ng-required="true" id="experience" type="text"  formControlName="experience"></textarea>
+            <label for="history">Employment His</label>
+                <textarea ng-required="true" id="history" type="text"  formControlName="employmentHistory"></textarea>
+            <button (click)="submitForm()">Submit Form</button>
+        </form>
+    </div>
+</div>
