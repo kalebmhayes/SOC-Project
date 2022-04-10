@@ -4,35 +4,36 @@
         <table>
             <thead>
                 <tr>
-                    <th>
-                    Name
-                    </th>
-                    <th>Address</th>
-                    <th>Phone Number</th>
-                    <th>Email</th>
-                    <th>Age</th>
-                    <th>Experience</th>
-                    <th>Employment History</th>
+                    <th>Name</th>
+                    <th class="hidden">Address</th>
+                    <th class="hidden">Phone Number</th>
+                    <th class="hidden">Email</th>
+                    <th class="hidden">Age</th>
+                    <th class="hidden">Experience</th>
+                    <th class="hidden">Employment History</th>
                 </tr>
             </thead>
-        <tr *ngFor="let item of filteredCustomers" >
+        <tr *ngFor="let item of filteredPeople" >
             <td>
                 <button class="showBtn" (click)="showInfoBox(item)">
                 {{item.name | titlecase}}  
                 </button>
             </td>
-            <td>{{item.address | titlecase}}</td>
-            <td>{{item.phoneNumber}}</td>
-            <td>{{item.email}}</td>
-            <td>{{item.age}} Yrs</td>
-            <td>{{item.experience}}</td>
-            <td>{{item.employmentHistory | titlecase}}</td>
+            
+            <td class="hidden">{{item.address | titlecase}}</td>
+            <td class="hidden">{{item.phoneNumber}}</td>
+            <td class="hidden">{{item.email}}</td>
+            <td class="hidden">{{item.age}} Yrs</td>
+            <td class="hidden">{{item.experience}}</td>
+            <td class="hidden">{{item.employmentHistory | titlecase}}</td>
+            
         </tr>
         </table>
 
-        <div [hidden]="item.hidden" *ngFor='let item of filteredCustomers' class="personal-info-card">
+        <div [hidden]="item.hidden" *ngFor='let item of filteredPeople' class="personal-info-card">
             <div class="contact">
-                <h1>{{item.name}} <span class="age">Age: 24</span></h1>
+                <h1>{{item.name}} </h1>
+                <span class="age">Age: 24</span>
                 <p>{{item.email}}</p>
                 <p>{{item.phoneNumber}}</p>
             </div>

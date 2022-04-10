@@ -1,3 +1,4 @@
+//interface for type of data submited in form element
 export interface Person{
     id?: number,
     name?: string,

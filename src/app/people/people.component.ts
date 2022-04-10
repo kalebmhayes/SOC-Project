@@ -15,44 +15,40 @@ import { PeopleService } from "../Services/people.services";
 
 
 export class People {
-    items: Person[]
-    filteredCustomers: any[]
+    items: Person[] //original array recieved from firestore
+    filteredPeople: any[] //array that is maintained and updated in the application
     db : AngularFireDatabase
-    
-    // constructor( db: AngularFireDatabase){
-    //    db.list('/People').valueChanges().subscribe(items =>{
-    //        this.items = items
-         
-    //        })
-    //    }
-    
+
     constructor(private peopleService: PeopleService){ }
 
     showInfoBox(item){
+        //shows popup dialogue box
         item.hidden = false
-        console.log(item.hidden)
     }
 
     hideInfoBox(item){
+        //hides popup dialogue box
         item.hidden = true
     }
 
     searchThis(data) {
       if (data) {
-        this.filteredCustomers = this.items.map((item) =>{
+        this.filteredPeople = this.items.map((item) =>{
             return({
                 ...item,
                 hidden: true
             })
         }).filter( (ele) => {
-        return ele.name.toLowerCase().indexOf(data.toLowerCase()) > -1 ||
-               ele.address.toLowerCase().indexOf(data.toLowerCase()) > -1 || 
-               ele.email.toLowerCase().indexOf(data.toLowerCase()) > -1 ||
-               ele.experience.toLowerCase().indexOf(data.toLowerCase()) > -1 ||
-               ele.employmentHistory.toLowerCase().indexOf(data.toLowerCase()) > -1
+            //filters the items array with a filter
+        return ele.name.toLowerCase().indexOf(data.toLowerCase()) > -1 || //searches by name
+               ele.address.toLowerCase().indexOf(data.toLowerCase()) > -1 || //searches by address
+               ele.email.toLowerCase().indexOf(data.toLowerCase()) > -1 || //searches by email
+               ele.experience.toLowerCase().indexOf(data.toLowerCase()) > -1 || ///searches by experience keywords
+               ele.employmentHistory.toLowerCase().indexOf(data.toLowerCase()) > -1 //searches by employment history keywords
         })
       } else {
-        this.filteredCustomers = this.items.map((item) =>{
+          //if filter text box is empty, it returns the orignal filterd people array
+        this.filteredPeople = this.items.map((item) =>{
             return({
                 ...item,
                 hidden: true
@@ -66,10 +62,12 @@ export class People {
     ngOnInit(){
         this.peopleService.getPeople().subscribe(person =>{
             this.items = person
-            this.filteredCustomers = this.items.map((item) =>{
+            this.filteredPeople = this.items.map((item) =>{
                 return({
                     ...item,
                     hidden: true
+                     //maps all properties of items array to each object in the filtered people array, 
+                //and adds a hidden property to set the style of the popup box
                 })
             })
         })

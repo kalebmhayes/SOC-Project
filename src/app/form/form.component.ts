@@ -1,6 +1,5 @@
 import { Component , OnInit} from "@angular/core";
 import { FormControl, Validators } from "@angular/forms";
-import { AngularFireDatabase } from "@angular/fire/compat/database";
 import { FormGroup } from "@angular/forms";
 import { PeopleService } from "../Services/people.services";
 
@@ -13,7 +12,7 @@ import { PeopleService } from "../Services/people.services";
 export class AppForm implements OnInit{
 
     constructor(private personService: PeopleService){}
-
+    //creates new form group 
     addUserForm = new FormGroup({
         name : new FormControl('' , [Validators.required]),
         address : new FormControl('' , [Validators.required]),
@@ -28,11 +27,11 @@ export class AppForm implements OnInit{
 
     submitForm(){
         if(this.addUserForm.valid){
-            console.log(this.addUserForm.value)
-            // this.db.database.ref('/People').push(this.addUserForm.value)
+            //if all fields are filled out, data will submit to the firestore database
+            
             this.personService.addItem(this.addUserForm.value)
 
-            console.log(this.addUserForm)
+            //reset all of the form field back to empty strings
             this.addUserForm = new FormGroup({
                 name : new FormControl('' , [Validators.required]),
                 address : new FormControl('' , [Validators.required]),
@@ -42,7 +41,7 @@ export class AppForm implements OnInit{
                 experience : new FormControl('' , [Validators.required]),
                 employmentHistory: new FormControl('' , [Validators.required])
             })
-            } else{
+            } else{ //if all fields are not filled in do this
                 alert('please fill in all fields')
                 }
         }

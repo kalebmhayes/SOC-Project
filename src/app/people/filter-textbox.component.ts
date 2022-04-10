@@ -14,9 +14,8 @@ export class FilterTextboxComponent implements OnInit {
         this.searchCriteria.emit(this.searchword)
     }
 
-    constructor(){}
 
     ngOnInit(){
-        
+        //sets initial values
     }
 }

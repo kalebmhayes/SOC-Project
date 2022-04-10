@@ -15,11 +15,12 @@ export class PeopleService {
     }
 
     getPeople(){
+        //sets the items array in the people component
         return this.people
     }
 
     addItem(item){
-        // this.peopleCollection.add(item)
+        //adds items to firestore on valid form submission
         this.afs.collection('People').add(item)
     }
 }
